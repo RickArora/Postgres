@@ -56,7 +56,7 @@ class Play
         FROM 
           plays
         WHERE
-          name = ?
+          title = ?
         SQL
         name_search.map{ |play| Play.new(play) }
   end
