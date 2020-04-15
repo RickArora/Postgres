@@ -64,3 +64,5 @@ class Play
   def find_by_playwright(name)
         data = PlayDBConnection.instance.execute("SELECT * FROM plays")
   end
+
+end
