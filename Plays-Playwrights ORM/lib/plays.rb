@@ -1,5 +1,6 @@
 require 'sqlite3'
 require 'singleton'
+require 'byebug'
 
 class PlayDBConnection < SQLite3::Database
   include Singleton
@@ -49,8 +50,8 @@ class Play
     SQL
   end
 
-  def self.find_by_title(name)
-       name_search = PlayDBConnection.instance.execute(<<-SQL, name)
+  def self.find_by_title(title)
+       title_search = PlayDBConnection.instance.execute(<<-SQL, title)
         SELECT
           *
         FROM 
@@ -58,11 +59,19 @@ class Play
         WHERE
           title = ?
         SQL
-        name_search.first
+        Play.new(title_search.first)
   end
 
-  def find_by_playwright(name)
-        data = PlayDBConnection.instance.execute("SELECT * FROM plays")
+  def self.find_by_playwright(name)
+        name_search = PlayDBConnection.instance.execute(<<-SQL, name)
+        SELECT 
+          *
+        FROM
+          plays
+        WHERE 
+          playwright_id = (SELECT playwright_id FROM playwrights WHERE name = ?)
+        SQL
+        Play.new(name_search.first);
   end
 
 end
