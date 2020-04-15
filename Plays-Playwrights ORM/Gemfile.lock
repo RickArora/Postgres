@@ -15,12 +15,16 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
     rspec-support (3.9.2)
+    singleton (0.1.0)
+    sqlite3 (1.4.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   rspec
+  singleton
+  sqlite3
 
 BUNDLED WITH
    2.1.4
