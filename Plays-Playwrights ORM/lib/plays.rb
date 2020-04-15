@@ -58,7 +58,7 @@ class Play
         WHERE
           title = ?
         SQL
-        name_search.map{ |play| Play.new(play) }
+        name_search.first
   end
 
   def find_by_playwright(name)
