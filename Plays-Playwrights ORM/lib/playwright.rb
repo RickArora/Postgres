@@ -17,7 +17,7 @@ class Playwright
 
     def self.all 
         data = PlayDBConnection.instance.execute("SELECT * FROM playwrights")
-        data.map = { |datnum| Playwright.new(datnum) }
+        data.map { |datum| Playwright.new(datum) }
     end
 
     def initialize(options)
@@ -39,7 +39,7 @@ class Playwright
 
     def update
     raise "#{self} not in database" unless self.id
-        PlayDBConnection.instance.execute(<<-SQL, self.name, self.birth_year, self.id
+        PlayDBConnection.instance.execute(<<-SQL, self.name, self.birth_year, self.id)
       UPDATE
         plays
       SET
@@ -50,6 +50,7 @@ class Playwright
   end
 end
 
-options = {"id" => 3, "name" => "tupac", "birth_year" => 1996}
-Playwright.new(options)
+options = {"name" => "tupac", "birth_year" => 1996}
+x = Playwright.new(options)
+x.create
 p Playwright.all 
