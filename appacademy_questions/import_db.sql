@@ -16,10 +16,6 @@ CREATE TABLE questions (
 
 CREATE TABLE question_follows (   
     id INTEGER NOT NULL PRIMARY KEY,
-    fname VARCHAR(255),
-    lname VARCHAR(255),
-    title VARCHAR(255),
-    body VARCHAR(255),
     author_id INTEGER NOT NULL,
     FOREIGN KEY (author_id) REFERENCES USERS(id),
     questions_id INTEGER NOT NULL,
@@ -28,17 +24,18 @@ CREATE TABLE question_follows (
 
 CREATE TABLE replies (
     id INTEGER NOT NULL PRIMARY KEY,
-    parent_reply VARCHAR(255),
+    parent_reply INTEGER,
     subject_question VARCHAR(255),
     body VARCHAR(255),
     author_id INTEGER,
     subject_question VARCHAR(255) NOT NULL,
-    FOREIGN KEY(author_id) REFERENCES USERS(id)
+    FOREIGN KEY(author_id) REFERENCES USERS(id),
+    FOREIGN KEY(parent_reply) REFERENCES replies(id)
 );
 
 CREATE TABLE question_likes ( 
     id INTEGER NOT NULL PRIMARY KEY,
-    likes VARCHAR(255),
+    question_id INTEGER NOT NULL,
     author_id INTEGER NOT NULL,
     FOREIGN KEY (author_id) REFERENCES USERS(id),
     questions_id INTEGER NOT NULL,
