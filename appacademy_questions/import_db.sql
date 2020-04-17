@@ -1,6 +1,7 @@
 PRAGMA foreign_keys = ON;
 
 CREATE TABLE users (
+    id INTEGER NOT NULL PRIMARY KEY, 
     fname VARCHAR(255),
     lname VARCHAR(255)
 );
@@ -8,21 +9,30 @@ CREATE TABLE users (
 CREATE TABLE questions (
     title VARCHAR(255),
     body VARCHAR(255),
-    author VARCHAR(255) FOREIGN KEY REFERENCES --(something)
+    author_id INTEGER NOT NULL,
+    FOREIGN KEY (author_id) REFERENCES USERS(id) 
 );
 
 CREATE TABLE question_follows (
     fname VARCHAR(255),
-    1name VARCHAR(255),
+    lname VARCHAR(255),
     title VARCHAR(255),
     body VARCHAR(255),
-    author VARCHAR(255) FOREIGN KEY REFERENCES --(something)
+    author_id INTEGER NOT NULL,
+    FOREIGN KEY (author_id) REFERENCES USERS(id)
 );
 
 CREATE TABLE replies (
-    -- to do
+    parent_reply VARCHAR(255),
+    subject_question VARCHAR(255),
+    body VARCHAR(255),
+    author_id INTEGER,
+    subject_question VARCHAR(255) NOT NULL,
+    FOREIGN KEY(author_id) REFERENCES USERS(id)
 );
 
 CREATE TABLE question_likes (
-    -- to do
+    likes VARCHAR(255),
+    author_id INTEGER NOT NULL,
+    FOREIGN KEY (author_id) REFERENCES USERS(id)
 );
