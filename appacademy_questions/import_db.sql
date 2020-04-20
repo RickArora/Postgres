@@ -24,7 +24,7 @@ CREATE TABLE question_follows (
 
 CREATE TABLE replies (
     id INTEGER NOT NULL PRIMARY KEY,
-    parent_reply INTEGER,
+    parent_reply VARCHAR(255),
     body VARCHAR(255),
     author_id INTEGER,
     subject_question VARCHAR(255) NOT NULL,
@@ -78,13 +78,13 @@ VALUES
 INSERT INTO 
     replies(parent_reply, body, author_id, subject_question) 
 VALUES
-    ('parent_reply', 'parent_body', 1,1);
+    ('parent_reply', 'parent_body', 1,'hi');
 
 INSERT INTO 
     replies
     (parent_reply, body, author_id, subject_question)
 VALUES
-    ('parent_reply2', 'parent_body2', 2, 2);
+    ('parent_reply2', 'parent_body2', 2, 'hi');
 INSERT INTO 
     question_likes (question_id, user_id)
 VALUES 
