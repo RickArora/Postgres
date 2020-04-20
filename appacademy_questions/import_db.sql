@@ -51,6 +51,47 @@ VALUES
     ('Sharan', 'Lubana');
 
 INSERT INTO 
-    questions (title, id, author_id)
+    questions (title, body, author_id)
 VALUES
-    ('question_name', 'question_body', --how do I ge the ID o-o)
+    ('question_name', 'question_body', 1)
+
+
+INSERT INTO 
+    questions
+    (title, author_id)
+VALUES
+    ('question_name2', 'question_body2', 2)
+
+
+INSERT INTO 
+    question_follows (author_id,question_id)
+VALUES 
+    (1,1)
+
+INSERT INTO 
+    question_follows
+    (author_id,question_id)
+VALUES
+
+
+    (2, 2)
+
+
+INSERT INTO 
+    replies(parent_reply, body, author_id, subject_question) 
+VALUES
+    ('parent_reply', 'parent_body', 1,1);
+
+INSERT INTO 
+    replies
+    (parent_reply, body, author_id, subject_question)
+VALUES
+    ('parent_reply2', 'parent_body2', 2, 2);
+INSERT INTO 
+    question_likes (question_id, user_id)
+VALUES 
+    (1,1);
+INSERT INTO 
+    question_likes (question_id, user_id)
+VALUES
+    (2, 2)
