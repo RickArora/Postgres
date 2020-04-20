@@ -58,7 +58,7 @@ VALUES
 
 INSERT INTO 
     questions
-    (title, author_id)
+    (title, body,author_id)
 VALUES
     ('question_name2', 'question_body2', 2);
 
