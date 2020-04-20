@@ -53,28 +53,26 @@ VALUES
 INSERT INTO 
     questions (title, body, author_id)
 VALUES
-    ('question_name', 'question_body', 1)
+    ('question_name', 'question_body', 1);
 
 
 INSERT INTO 
     questions
     (title, author_id)
 VALUES
-    ('question_name2', 'question_body2', 2)
+    ('question_name2', 'question_body2', 2);
 
 
 INSERT INTO 
     question_follows (author_id,question_id)
 VALUES 
-    (1,1)
+    (1,1);
 
 INSERT INTO 
     question_follows
     (author_id,question_id)
 VALUES
-
-
-    (2, 2)
+    (2, 2);
 
 
 INSERT INTO 
@@ -94,4 +92,4 @@ VALUES
 INSERT INTO 
     question_likes (question_id, user_id)
 VALUES
-    (2, 2)
+    (2, 2);
