@@ -9,4 +9,16 @@ class Reply
         @author_id = options['author_id']
         @subject_questions = options['subject_questions']
     end
+
+    def self.find_by_id(id) 
+        query = QuestionsDatabase.instance.execute(<<-SQL,id)
+        SELECT
+            * 
+        FROM 
+            replies
+        WHERE
+            id = ?
+        SQL
+        Reply.new(query['id'])
+    end
 end
