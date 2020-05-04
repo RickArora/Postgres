@@ -10,4 +10,17 @@
 #  updated_at    :datetime         not null
 #
 class Course < ApplicationRecord
+    has_many(
+        :enrollment,
+        class_name: 'Enrollment',
+        primary_key: :id,
+        foreign_key: :course_id
+    )
+
+    has_many(
+        :user,
+        class_name: 'User',
+        primary_key: :id,
+        foreign_key: :student_id
+    )
 end
