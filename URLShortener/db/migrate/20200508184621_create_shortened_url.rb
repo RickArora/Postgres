@@ -7,11 +7,5 @@ class CreateShortenedUrl < ActiveRecord::Migration[6.0]
       t.integer :user_id
     end
     add_index :shortened_urls, [:short_url, :user_id]
-    has_many(
-      :user,
-      class_name: 'User',
-      foreign_key: :user_id,
-      primary_key: :id
-    )
   end
 end
