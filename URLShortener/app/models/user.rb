@@ -3,6 +3,6 @@ class User < ApplicationRecord
     has_many(
         :shortened_urls,
         class_name: 'ShortenedUrl',
-        primary_key: id
+        primary_key: :id
     )
 end

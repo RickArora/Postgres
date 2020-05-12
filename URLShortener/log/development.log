@@ -111,3 +111,21 @@ Migrating to CreateShortenedUrl (20200508184621)
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
   [1m[36mShortenedUrl Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "hi"], ["LIMIT", 1]]
   [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (8.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (107.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "hi@hi.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (56.7ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "email") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2020-05-12 22:34:00.413310"], ["updated_at", "2020-05-12 22:34:00.413310"], ["email", "hi@hi.com"]]
+  [1m[35m (48.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (26.9ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (15.4ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" ORDER BY "shortened_urls"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists? (6.1ms)[0m  [1m[34mSELECT 1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "6qxYpq1pSkffdDmd4c0iVQ"], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "w5gVhKmTXFD2MzhqljXOPA"], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "AWq7KLuBWQTL7IHKDHQjAQ"], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists? (4.0ms)[0m  [1m[34mSELECT 1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "ra_t9L0yMLm9gGG4csNSqA"], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "ujRVMLyvCoXn-6g8QfkQbA"], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "0WENy_UA5-KobSaJ99O_Yg"], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "rBhSJOgIjb6nLSqHFuKBeg"], ["LIMIT", 1]]
+  [1m[35m (32.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "rBhSJOgIjb6nLSqHFuKBeg"], ["LIMIT", 1]]
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (17.8ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("created_at", "updated_at", "long_url", "short_url", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2020-05-12 22:58:31.195435"], ["updated_at", "2020-05-12 22:58:31.195435"], ["long_url", "https://www.netflix.com/watch/80209532?trackId=155573560"], ["short_url", "rBhSJOgIjb6nLSqHFuKBeg"], ["user_id", 1]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
