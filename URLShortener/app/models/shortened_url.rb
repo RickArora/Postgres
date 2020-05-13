@@ -26,4 +26,8 @@ class ShortenedUrl < ApplicationRecord
       new_short_url.user_id = user.id
       new_short_url.save!
     end
+
+    def submitter
+      :user_id
+    end
 end
